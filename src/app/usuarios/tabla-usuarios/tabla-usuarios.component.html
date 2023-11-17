@@ -1,0 +1,35 @@
+<div class="row">
+  <h1 class="text-center">Lista de Usuarios</h1>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Edad</th>
+          <th>Dirección</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div *ngIf="loading; else result">
+          <img
+            class="text-center"
+            width="150px"
+            src="https://i.gifer.com/ZKZg.gif"
+            alt="loader"
+          />
+        </div>
+        <ng-template #result>
+          <tr *ngFor="let user of users; trackBy: identify">
+            <td>{{ user.name }}</td>
+            <td>{{ user.fecha_nacimiento | date }}</td>
+            <td>{{ user.edad }}</td>
+            <td>{{ user.address }}</td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </div>
+</div>
